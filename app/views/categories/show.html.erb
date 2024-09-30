@@ -1,0 +1,19 @@
+<h3>Category Show</h3>
+
+<%= link_to "Back to Categories", categories_path %>
+
+<% @category.recipes.each do | recipe | %>
+
+<h4> <%= recipe.name %> </h4>
+<p> <%= recipe.description %> </p>
+<img src="<%= recipe.image_url %>" alt="recipe-image" width="100px">
+<br>
+<%= recipe.rating %>
+
+<% bookmark = recipe.bookmarks.select { | bookmark | bookmark.category_id == @category.id } %>
+
+<%= button_to "Delete Recipe", category_bookmark_path(@category, bookmark), method: :delete %>
+<hr>
+
+
+<% end %>
