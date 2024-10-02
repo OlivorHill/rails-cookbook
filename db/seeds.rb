@@ -25,9 +25,9 @@ categories = [ Category.create!(name: "Indian"),
     name: Faker::Food.dish,
     description: Faker::Food.description,
     image_url: Faker::LoremFlickr.image,
-    rating: rand(1..10).to_f + [ 0, 0.5 ].sample,
+    rating: rand(1..9).to_f + [ 0, 0.5 ].sample,
   )
-  b = Bookmark.new(comment: Faker::Lorem.paragraph(sentence_count: rand(3..7)), recipe: r, category: categories.sample)
+  b = Bookmark.new(comment: Faker::Lorem.paragraph(sentence_count: 1), recipe: r, category: categories.sample)
   b.save!
 end
 

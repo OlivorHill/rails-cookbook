@@ -1,19 +1,49 @@
-<h3>Category Show</h3>
-
-<%= link_to "Back to Categories", categories_path %>
-
-<% @category.recipes.each do | recipe | %>
-
-<h4> <%= recipe.name %> </h4>
-<p> <%= recipe.description %> </p>
-<img src="<%= recipe.image_url %>" alt="recipe-image" width="100px">
-<br>
-<%= recipe.rating %>
-
-<% bookmark = recipe.bookmarks.select { | bookmark | bookmark.category_id == @category.id } %>
-
-<%= button_to "Delete Recipe", category_bookmark_path(@category, bookmark), method: :delete %>
-<hr>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= image_path "food1.jpg" %>')";>
+  <div>
+    <h1><%= @category.name %></h1>
+  </div>
+</div>
 
 
-<% end %>
+<div class="category-header">
+  <h2>Recipes</h2>
+  <%= link_to "Add a new Recipe", new_category_bookmark_path(@category, @bookmark), class: "create-btn" %>
+</div>
+
+
+
+
+<div class="recipe-container">
+
+  <% @category.recipes.each do | recipe | %>
+
+      <div class="recipe-card">
+        <div class="recipe-image">
+          <img src="<%= recipe.image_url %>" alt="recipe-image">
+        </div>
+
+        <div class="recipe-content">
+          <h2 class="recipe-title"><%= recipe.name %></h2>
+          <p class="recipe-description"><%= recipe.description %></p>
+        </div>
+
+
+        <div class="recipe-footer">
+          <span class="user-comment"><strong><p> <%= recipe.bookmarks.find { | bookmark | bookmark.recipe_id == recipe.id }.comment %> </p></strong></span>
+          <span class="rating"><%= "#{recipe.rating}⭐️" %></span>
+
+          <% bookmark = recipe.bookmarks.select { | bookmark | bookmark.category_id == @category.id } %>
+
+          <%= link_to category_bookmark_path(@category, bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "delete-icon" do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+
+
+
+
+
+</div>
+<%= link_to "Delete this Category", category_path, class: "destroy-btn justify-content-center", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>

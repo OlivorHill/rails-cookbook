@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   root to: "categories#index"
 
-  resources :categories, only: [ :index, :show, :new, :create ] do
+  resources :categories, only: [ :index, :show, :new, :create, :destroy ] do
     resources :bookmarks, only: [ :new, :create, :destroy ]
   end
 end

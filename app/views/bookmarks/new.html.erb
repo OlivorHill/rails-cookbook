@@ -1,12 +1,14 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= image_path "food1.jpg" %>')";>
   <div>
-    <h1>Create a new Category</h1>
+    <h1><%= "Add a Recipe to #{@category.name}" %></h1>
   </div>
 </div>
 
+
 <div class="form-new">
-  <%= simple_form_for(@category) do |f| %>
-    <%= f.input :name %>
-    <%= f.button :submit, class: "create-btn" %>
+  <%= simple_form_for [@category, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :recipe %>
+    <%= f.submit %>
   <% end %>
 </div>

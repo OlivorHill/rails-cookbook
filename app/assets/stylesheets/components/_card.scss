@@ -1,0 +1,51 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.category-card p {
+  transition: .5s ease-in-out
+}
+
+.category-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 150px;
+  width: 350px;
+  color: white;
+  background-color: rgb(111, 111, 111);
+  background-color: f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: all .4s ease-in-out
+}
+
+.category-card:hover {
+  transform: scale(1.08);
+
+  p {
+    transform: scale(1.2);
+    font-weight: bold;
+  }
+
+}
+
+.delete-icon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: .2s ease-in-out;
+}
+
+.delete-icon:hover {
+  position: absolute;
+  transform: scale(1.05);
+  color: rgb(255, 255, 255);
+}

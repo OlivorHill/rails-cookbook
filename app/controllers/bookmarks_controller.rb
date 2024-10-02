@@ -1,16 +1,17 @@
 class BookmarksController < ApplicationController
   def new
     @bookmark = Bookmark.new
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:category_id])
   end
 
   def create
-    @category = Category.find(params[:id])
-    @bookmark = @category.bookmarks.new(bookmark_params)
+    @category = Category.find(params[:category_id])
+    @bookmark = Bookmark.new(bookmark_params)
+    @bookmark.category = @category
     if @bookmark.save
       redirect_to category_path(@category)
     else
-      render :new, sstatus: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

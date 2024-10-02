@@ -1,6 +1,25 @@
-<h3>All Categories</h3>
-<h5> <%= link_to "Add a Category", new_category_path %> </h5>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= image_path "food1.jpg" %>')";>
+  <div>
+    <h1> RecipeHub</h1>
+    <h3>Save your favourite recipes</h3>
+  </div>
+</div>
 
-<% @categories.each do | category | %>
-<li> <%= link_to category.name, category_path(category) %> </li>
-<% end %>
+
+<div class="container">
+  <div class="category-header">
+    <h2>List of Categories</h2>
+    <%= link_to "Add a Category", new_category_path, class: "create-btn" %>
+  </div>
+
+  <div class="card-container">
+
+    <% @categories.each do |category| %>
+      <%= link_to category_path(category), class: "category-card" do %>
+        <div>
+          <p> <%= category.name %> </p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

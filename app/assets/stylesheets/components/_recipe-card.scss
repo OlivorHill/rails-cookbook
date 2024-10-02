@@ -1,0 +1,65 @@
+/* General card styling */
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #606060;
+  background-color: #f8f8f8;
+  margin: 15px;
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;                   /* Ensure the image and content don't spill out of the card*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.recipe-image img {
+  width: 100%;                       /* Make image full width */
+  height: 175px;
+  object-fit: cover;
+  margin: auto;
+}
+
+/* Recipe Title & Description */
+.recipe-content {
+  padding: 15px;                       /* Add padding inside the content area */
+}
+
+.recipe-title {
+  font-size: 1.2em;
+  margin: 0 0 10px 0;                 /* Margin below the title */
+}
+
+.recipe-description {
+  font-size: 0.9em;
+  margin: 0;                            /* Remove margins */
+  color: #474747;
+}
+
+/* Recipe footer for comment and rating */
+.recipe-footer {
+  display: flex;                       /* Use Flexbox to align items horizontally */
+  justify-content: space-between;       /* Space between comment and rating */
+  align-items: center;
+  padding: 10px 15px;                   /* Padding for the footer */
+  background-color: #f8f8f8;            /* Light background for the footer */
+  border-top: 1px solid #ddd;           /* Add a top border to separate footer */
+}
+
+.recipe-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.user-comment {
+  font-size: 0.75em;
+  margin: 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+.rating {
+  font-size: 0.9em;                 /* Slightly larger font for rating */
+}
