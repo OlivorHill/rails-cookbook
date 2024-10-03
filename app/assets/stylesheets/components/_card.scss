@@ -6,7 +6,7 @@
 }
 
 .category-card p {
-  transition: .5s ease-in-out
+  transition: .3s ease-in-out
 }
 
 .category-card {
@@ -17,8 +17,8 @@
   height: 150px;
   width: 350px;
   color: white;
+  background-size: cover;
   background-color: rgb(111, 111, 111);
-  background-color: f9f9f9;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   text-decoration: none;

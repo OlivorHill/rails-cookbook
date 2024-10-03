@@ -1,16 +1,15 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= image_path "food1.jpg" %>')";>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= @category.photo.attached? ? cl_image_path(@category.photo.key, crop: :fill) :
+image_path("https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", crop: :fill) %>);">
+
   <div>
     <h1><%= @category.name %></h1>
   </div>
 </div>
 
-
 <div class="category-header">
   <h2>Recipes</h2>
   <%= link_to "Add a new Recipe", new_category_bookmark_path(@category, @bookmark), class: "create-btn" %>
 </div>
-
-
 
 
 <div class="recipe-container">
@@ -24,7 +23,7 @@
 
         <div class="recipe-content">
           <h2 class="recipe-title"><%= recipe.name %></h2>
-          <p class="recipe-description"><%= recipe.description %></p>
+          <p class="recipe-description"><%= recipe.description.truncate(200) %></p>
         </div>
 
 
